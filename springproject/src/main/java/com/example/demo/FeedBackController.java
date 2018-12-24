@@ -6,19 +6,28 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import javax.servlet.http.HttpServletResponse;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 
 @RestController
 public class FeedBackController {
 
     @CrossOrigin(origins = "*", allowCredentials = "true", allowedHeaders = "*")
     @RequestMapping(value = "/login", method = RequestMethod.POST)
-    public int hello(HttpServletResponse response)
+    public int login()
     {
-//        response.setHeader("Access-Control-Allow-Origin", "*");
-//        response.setHeader("Access-Control-Allow-Methods", "POST, GET, OPTIONS, DELETE");
-//        response.setHeader("Access-Control-Max-Age", "3600");
-//        response.setHeader("Access-Control-Allow-Credentials", "true");
-//        response.setHeader("Access-Control-Allow-Headers", "Origin,Accept,X-Requested-With,Content-Type,Access-Control-Request-Method,Access-Control-Request-Headers,Authorization")
         return 200;
+    }
+
+    @CrossOrigin(origins = "*", allowCredentials = "true", allowedHeaders = "*")
+    @RequestMapping(value = "/feedback", method = RequestMethod.GET)
+    public ArrayList<QuestionModel> getQuestions()
+    {
+        ArrayList<QuestionModel> questionModels = new ArrayList<>();
+        questionModels.add(new QuestionModel("How was the Food?"));
+        questionModels.add(new QuestionModel("How was the Punctuality?"));
+        questionModels.add(new QuestionModel("How was the Over All Experience?"));
+        return questionModels;
     }
 }
