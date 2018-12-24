@@ -1,0 +1,7 @@
+npm i angular2-cookie --save
+
+npm rebuild node-sass
+
+npm install rxjs-compat --save
+
+npm install cors

@@ -1,0 +1,17 @@
+
+<div class="box">
+<img src="https://upload.wikimedia.org/wikipedia/en/thumb/6/65/TIAA_logo_%282016%29.svg/1920px-TIAA_logo_%282016%29.svg.png" class="logo">
+<h1>Candidate Login</h1>
+<form>
+<p>Reference ID:</p>
+<input type="text" name="" placeholder="Enter Reference ID" [(ngModel)]="refId" [ngModelOptions]="{standalone: true}">
+<p>Password:</p>
+<input type="password" name="" placeholder="Enter Password" [(ngModel)]="password" [ngModelOptions]="{standalone: true}">
+    <button (click)="goToPage('feedback')">
+  <span>Submit</span>
+</button>
+<a href="HRlogin.html">Employee Login?</a>
+    </form>
+
+</div>
+    

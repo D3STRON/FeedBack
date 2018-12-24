@@ -1,0 +1,25 @@
+<div style="text-align:center">
+  <h1>
+    Welcome to {{ title }}!
+  </h1>
+  </div>
+<div style="text-align:center">
+<h3>RATING: 1-7: Average, 8-9: Satisfactory, 10: Excellent</h3>
+</div>
+<div *ngFor="let question of questionList ; let i = index" [attr.data-index]="i">
+<h3>{{question.questionNo}}: {{question.questionName}}</h3>
+<p>Your Rating is {{question.questionRating}} {{question.questionOverAll}}</p>
+  <button (click)="setScore(i,1)">1</button>
+  <button (click)="setScore(i,2)">2</button>
+  <button (click)="setScore(i,3)">3</button>
+  <button (click)="setScore(i,4)">4</button>
+  <button (click)="setScore(i,5)">4</button>
+  <button (click)="setScore(i,6)">6</button>
+  <button (click)="setScore(i,7)">7</button>
+  <button (click)="setScore(i,8)">8</button>
+  <button (click)="setScore(i,9)">9</button>
+  <button (click)="setScore(i,10)">10</button>
+</div>  
+
+<br><br><textarea name="comment" class="textboxclass" [(ngModel)]="feedback" placeholder="comment"></textarea>
+<button (click)="submitFeedback()">Submit Feedback!</button>
