@@ -65,10 +65,16 @@ export class CandidateFeedbackComponent implements OnInit{
 
   ngOnInit()
   {
-    for(let i =0; i< 5;i++)
-    {
-      this.questionList.push({questionNo: 'Q'+i, questionName: 'How was the food?', questionOverAll:'?', questionRating: null})
-    }
+      this.httpClient.get(this.g.url+this.pageName).subscribe(data => {
+          for(let i =0; i< 3;i++)
+          {
+            this.questionList.push({questionNo: 'Q'+i, questionName: data[i].questionName, questionOverAll:'?', questionRating: null})
+          }
+      },
+          error => {
+              console.log("Error", error);
+          }
+      );
   }
 
 }
