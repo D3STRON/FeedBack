@@ -47,28 +47,29 @@ export class CandidateFeedbackComponent implements OnInit{
 
   submitFeedback()
   {
-      this.httpClient.post(this.g.url+this.pageName,
-      {
-        candidateCompanyName: 'Jp Morgan',
-        feedback:this.feedback,
-        questionList: this.questionList
-      })
-      .subscribe(
-          data => {
-              console.log("POST Request is successful ", data);
-          },
-          error => {
-              console.log("Error", error);
-          }
-      ); 
+    console.log(this.questionList)
+      // this.httpClient.post(this.g.url+this.pageName,
+      // {
+      //   candidateCompanyName: 'Jp Morgan',
+      //   feedback:this.feedback,
+      //   questionList: this.questionList
+      // })
+      // .subscribe(
+      //     data => {
+      //         console.log("POST Request is successful ", data);
+      //     },
+      //     error => {
+      //         console.log("Error", error);
+      //     }
+      // ); 
   }
 
   ngOnInit()
   {
       this.httpClient.get(this.g.url+this.pageName).subscribe(data => {
-          for(let i =0; i< 3;i++)
+          for(let i =0; i< 4;i++)
           {
-            this.questionList.push({questionNo: 'Q'+i, questionName: data[i].questionName, questionOverAll:'?', questionRating: null})
+            this.questionList.push({questionNo: 'Q'+data[i].questionId, questionName: data[i].questionName, questionOverAll:'?', questionRating: null})
           }
       },
           error => {

@@ -1,6 +1,7 @@
 package com.example.demo;
 
 import com.example.demo.document.QuestionModel;
+import com.example.demo.repository.QAnalysisRepository;
 import com.example.demo.repository.QuestionRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -12,8 +13,14 @@ import java.util.List;
 
 @RestController
 public class FeedBackController {
+    private final QuestionRepository questionRepository;
+    protected final QAnalysisRepository qAnalysisRepository;
+
     @Autowired
-    private QuestionRepository questionRepository;
+    public FeedBackController(QuestionRepository questionRepository, QAnalysisRepository qAnalysisRepository) {
+        this.questionRepository = questionRepository;
+        this.qAnalysisRepository = qAnalysisRepository;
+    }
 
     @CrossOrigin(origins = "*", allowCredentials = "true", allowedHeaders = "*")
     @RequestMapping(value = "/login", method = RequestMethod.POST)
@@ -27,10 +34,6 @@ public class FeedBackController {
     public List<QuestionModel> getQuestions()
     {
         List<QuestionModel> questionModels = this.questionRepository.findAll();
-//        List<QuestionModel> questionModels = new ArrayList<>();
-//        questionModels.add(new QuestionModel("How was the Food?",0,0));
-//        questionModels.add(new QuestionModel("How was the Punctuality?",0,0));
-//        questionModels.add(new QuestionModel("How was the Over All Experience?",0,0));
         return questionModels;
     }
 }

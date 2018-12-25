@@ -4,25 +4,44 @@ import org.bson.types.ObjectId;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
-@Document(collection = "QuestionModels")
+@Document(collection = "Questions")
 public class QuestionModel {
-
     @Id
-    public ObjectId _id;
+    public String questionId;
 
+    public int lastModifiedMonth;
+    public int lastModifiedYear;
     public String questionName;
 
+    public String getQuestionId() {
+        return questionId;
+    }
 
-    public QuestionModel( String questionName) {
+    public void setQuestionId(String questionId) {
+        this.questionId = questionId;
+    }
+
+    public int getLastModifiedMonth() {
+        return lastModifiedMonth;
+    }
+
+    public QuestionModel(String questionId, int lastModifiedMonth, int lastModifiedYear, String questionName) {
+        this.questionId = questionId;
+        this.lastModifiedMonth = lastModifiedMonth;
+        this.lastModifiedYear = lastModifiedYear;
         this.questionName = questionName;
     }
 
-    public ObjectId get_id() {
-        return _id;
+    public void setLastModifiedMonth(int lastModifiedMonth) {
+        this.lastModifiedMonth = lastModifiedMonth;
     }
 
-    public void set_id(ObjectId _id) {
-        this._id = _id;
+    public int getLastModifiedYear() {
+        return lastModifiedYear;
+    }
+
+    public void setLastModifiedYear(int lastModifiedYear) {
+        this.lastModifiedYear = lastModifiedYear;
     }
 
 

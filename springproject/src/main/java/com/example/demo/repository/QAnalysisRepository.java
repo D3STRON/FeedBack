@@ -1,10 +1,10 @@
 package com.example.demo.repository;
 
-import com.example.demo.document.QuestionModel;
+import com.example.demo.document.QAnalysisModel;
 import org.springframework.data.mongodb.repository.MongoRepository;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public interface QuestionRepository extends MongoRepository<QuestionModel, String> {
+public interface QAnalysisRepository  extends MongoRepository<QAnalysisModel, String> {
 
 }
