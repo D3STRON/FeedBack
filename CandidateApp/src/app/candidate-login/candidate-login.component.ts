@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';// for routing
 import { HttpClient } from '@angular/common/http'; // for http request 
-import {CookieService} from 'angular2-cookie/core'; // for cookies
+import {CookieService} from 'angular2-cookie/core'; // for cookies for tokens
 import { Globals } from '../globals';
 
 

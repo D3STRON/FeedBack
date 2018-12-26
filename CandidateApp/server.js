@@ -35,3 +35,8 @@ app.post('/login',function(req,res){
     res.writeHead("200",{ "Content-Type": "application/json", "Access-Control-Allow-Origin": "*" });
     res.end(JSON.stringify(a))
 })
+app.post('/hrlogin',function(req,res){
+  console.log(req.body)
+  res.writeHead("200",{ "Content-Type": "application/json", "Access-Control-Allow-Origin": "*" });
+  res.end(JSON.stringify(a))
+})

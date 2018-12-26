@@ -1,0 +1,17 @@
+
+<div class="box">
+  <img src="https://upload.wikimedia.org/wikipedia/en/thumb/6/65/TIAA_logo_%282016%29.svg/1920px-TIAA_logo_%282016%29.svg.png" class="logo">
+  <h1>Employee Login</h1>
+  <form>
+    <p>Employee ID:</p>
+    <input type="text" name="" placeholder="Enter Employee ID" [(ngModel)]="empId" [ngModelOptions]="{standalone: true}">
+    <p>Password:</p>
+    <input type="password" name="" placeholder="Enter Password" [(ngModel)]="emppassword" [ngModelOptions]="{standalone: true}">
+    <button (click)="goToPage('analysis')">
+      <span>Submit</span>
+    </button>
+    <a routerLink="/login">Candidate Login?</a>
+  </form>
+
+</div>
+

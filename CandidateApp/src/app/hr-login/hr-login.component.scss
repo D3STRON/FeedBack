@@ -1,0 +1,77 @@
+
+.box{
+  width:320px;
+  height:430px;
+  background:white;
+  color:rgb(4,89,152);
+  top:50%;
+  left:50%;
+  position:absolute;
+  transform:translate(-50%,-50%);
+  box-sizing:border-box;
+  padding:70px 30px;
+}
+
+.logo{
+  width:100px;
+  height:80px;
+  position:absolute;
+  top:0px;
+  left: calc(50% - 50px);
+}
+
+h1{
+  margin-bottom:10px;
+  padding:20 0 20px;
+  text-align:center;
+  font-size:22px;
+}
+.box p{
+  margin:0px;
+  padding:0px;
+  font-weight:bold;
+}
+
+.box input{
+  width:100%;
+  margin-bottom:40px;
+}
+.box input[type="text"],input[type="password"]{
+
+  border:none;
+  border-bottom:1px solid blue;
+  background:transparent;
+  outline:none;
+  height:40px;
+}
+button{
+  border:none;
+  outline:none;
+  height:40px;
+  width:150px;
+  background:rgba(4,89,152,0.5);
+  font-size:18px;
+  border-radius:20px;
+  position: absolute;
+  left: calc(50% - 85px);
+  top:calc(50% + 105px);
+}
+button:hover{
+  cursor:pointer;
+  background:rgba(4,89,152,0.75);
+  color:#000;
+
+}
+.box a{
+  padding-bottom: 20px;
+  position:absolute;
+  bottom:0px;
+  left: calc(50% - 55px);
+  text-decoration: none;
+  font-size:13px;
+  color: rgb(4,89,152);
+
+}
+.box a:hover{
+  color:darkblue;
+}

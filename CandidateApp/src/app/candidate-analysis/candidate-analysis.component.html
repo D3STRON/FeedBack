@@ -1,0 +1,23 @@
+<nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" >TIAA</a>
+    </div>
+    <ul class="nav navbar-nav">
+      <li><a routerLink="/analysis" routerLinkActive="active">Add Question</a></li>
+      <li><a routerLink="/monthly" routerLinkActive="active">Monthly Analysis</a></li>
+      <li><a routerLink="/yearly" routerLinkActive="active">Yearly Analysis</a></li>
+      <li><a routerLink="/comment" routerLinkActive="active">Comment Analysis</a></li>
+    </ul>
+  </div>
+</nav>
+
+<h4>Add A New Question Here!</h4>
+<input type="text" class="textboxclass" [(ngModel)]="question" placeholder="Enter question..."/> <button (click)="addQuestion()">Add</button>
+<h4>Current Questions List:</h4>
+<div *ngFor="let question of questionList ; let i = index" [attr.data-index]="i">
+  <h4>{{question.questionNo}}: {{question.questionName}}</h4>
+ </div> 
+
+
+
