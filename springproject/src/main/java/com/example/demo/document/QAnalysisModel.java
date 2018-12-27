@@ -26,8 +26,9 @@ public class QAnalysisModel {
     }
 
 
-    public QAnalysisModel(String qanalysisid) {
-        this.qanalysisid = qanalysisid;
+
+    public QAnalysisModel() {
+        
     }
 
     public String getQuestionId() {

@@ -13,6 +13,7 @@ import { HrLoginComponent } from './hr-login/hr-login.component';
 import { MonthlyAnalysisComponent } from './candidate-analysis/monthly-analysis/monthly-analysis.component';
 import { YearlyAnalysisComponent } from './candidate-analysis/yearly-analysis/yearly-analysis.component';
 import { CommentAnalysisComponent } from './candidate-analysis/comment-analysis/comment-analysis.component' // global variables
+import { DatePipe } from '@angular/common';
 
 @NgModule({
   declarations: [
@@ -34,7 +35,8 @@ import { CommentAnalysisComponent } from './candidate-analysis/comment-analysis/
   ],
   providers: [
     CookieService,
-    Globals
+    Globals,
+    DatePipe
   ], // for cookies
   bootstrap: [AppComponent]
 })

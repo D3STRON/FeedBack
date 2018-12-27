@@ -14,7 +14,7 @@ export class HrLoginComponent implements OnInit {
   empId : string;
 
   constructor(private router: Router, private httpClient: HttpClient, private g: Globals) {
-    document.body.style.background = 'rgba(4,89,152,0.25)';
+    document.body.style.background = 'rgba(4,89,152,0.5)';
   }
 
   goToPage(pageName:string){

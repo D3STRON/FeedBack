@@ -40,15 +40,15 @@ public class FeedBackController {
     }
 
     @CrossOrigin(origins = "*", allowCredentials = "true", allowedHeaders = "*")
-    @RequestMapping(value = "/getQuestions", method = RequestMethod.GET)
+    @RequestMapping(value = "/questions/all", method = RequestMethod.GET)
     public List<QuestionModel> getQuestions()
     {
         List<QuestionModel> questionModels = this.questionRepository.findAll();
         return questionModels;
     }
 
-    @CrossOrigin(origins = "*", allowCredentials = "true", allowedHeaders = "*")
     @RequestMapping(value = "/addQuestion",  method = POST, consumes = APPLICATION_JSON_VALUE, produces = APPLICATION_JSON_VALUE)
+    @CrossOrigin(origins = "*", allowCredentials = "true", allowedHeaders = "*")
     public int addQuestion(HttpEntity<Map<String,String>> httpEntity)
     {
         qid = UUID.randomUUID().toString();
@@ -56,7 +56,7 @@ public class FeedBackController {
                 qid,
                 c.get(Calendar.MONTH),
                 c.get(Calendar.YEAR),
-                httpEntity.getBody().get("question")
+                httpEntity.getBody().get("questionName")
         ));
 
         this.qAnalysisRepository.save(new QAnalysisModel(

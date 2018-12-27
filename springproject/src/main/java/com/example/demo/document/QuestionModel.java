@@ -32,6 +32,10 @@ public class QuestionModel {
         this.questionName = questionName;
     }
 
+    public QuestionModel() {
+
+    }
+
     public void setLastModifiedMonth(int lastModifiedMonth) {
         this.lastModifiedMonth = lastModifiedMonth;
     }
