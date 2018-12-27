@@ -31,14 +31,14 @@ public class MongoDBConfig implements CommandLineRunner {
         QuestionModel questionModel1 = new QuestionModel(
                  qid,
                 2,
-                2019,
+                2018,
                 "How was the Food?"
         );
         QAnalysisModel qAnalysisModel1 = new QAnalysisModel(
                 UUID.randomUUID().toString(),
                 qid,
                 2,
-                2019,
+                2018,
                 0,
                 1
         );

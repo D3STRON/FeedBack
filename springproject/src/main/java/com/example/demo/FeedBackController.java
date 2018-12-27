@@ -40,7 +40,7 @@ public class FeedBackController {
     }
 
     @CrossOrigin(origins = "*", allowCredentials = "true", allowedHeaders = "*")
-    @RequestMapping(value = "/feedback", method = RequestMethod.GET)
+    @RequestMapping(value = "/getQuestions", method = RequestMethod.GET)
     public List<QuestionModel> getQuestions()
     {
         List<QuestionModel> questionModels = this.questionRepository.findAll();

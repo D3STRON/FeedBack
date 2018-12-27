@@ -21,23 +21,29 @@ export class CandidateAnalysisComponent implements OnInit {
 
   addQuestion()
   {
-    this.questionList.push({questionNo: 'Q'+(this.questionList.length+1), questionName: this.question})
-    this.httpClient.post(this.g.url+this.addQPage,
-      {
-        question: this.question
-      })
-      .subscribe(
-          data => {
-              console.log("POST Request is successful ", data);
-          },
-          error => {
-              console.log("Error", error);
-          }
-      );
+    if(this.questionList.indexOf({questionName:this.question})!==-1)
+    {
+      this.questionList.push({questionNo: 'Q'+(this.questionList.length+1), questionName: this.question})   
+      this.httpClient.post(this.g.url+this.addQPage,
+        {
+          question: this.question
+        })
+        .subscribe(
+            data => {
+                console.log("POST Request is successful ", data);
+            },
+            error => {
+                console.log("Error", error);
+            }
+        );
+    }
+    else{
+      alert("This question already exists!");
+    }
   }
 
   ngOnInit() {
-    this.httpClient.get(this.g.url+this.pageName).subscribe(data => {
+    this.httpClient.get(this.g.url+this.g.getQuestions).subscribe(data => {
       for(let i =0; i< 4;i++)
       {
         this.questionList.push({questionNo: 'Q'+(i+1), questionName: data[i].questionName})
