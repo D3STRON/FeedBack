@@ -38,7 +38,7 @@ export class CandidateAnalysisComponent implements OnInit {
 
   ngOnInit() {
     this.httpClient.get(this.g.url+this.pageName).subscribe(data => {
-      for(let i =0; i< 1;i++)
+      for(let i =0; i< 4;i++)
       {
         this.questionList.push({questionNo: 'Q'+(i+1), questionName: data[i].questionName})
       }
