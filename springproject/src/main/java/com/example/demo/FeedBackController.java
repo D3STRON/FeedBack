@@ -79,6 +79,7 @@ public class FeedBackController {
                         0,
                         0
                 );
+                this.qAnalysisRepository.save(tempanalysis);
             }
         }
         return 200;
