@@ -6,5 +6,5 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface QAnalysisRepository  extends MongoRepository<QAnalysisModel, String> {
-
+    QAnalysisModel findQAnalysisModelByQuestionIdAndMonthAndYear(String questionId, int Month, int Year);
 }

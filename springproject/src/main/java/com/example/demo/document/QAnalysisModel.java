@@ -10,17 +10,17 @@ public class QAnalysisModel {
     public String qanalysisid;
 
     public String questionId;
-    public int Month;
-    public int Year;
-    public float totalScore;
+    public int month;
+    public int year;
+    public int totalScore;
     public int totalFeedbacks;
 
 
-    public QAnalysisModel(String qanalysisid, String questionId, int month, int year, float totalScore, int totalFeedbacks) {
+    public QAnalysisModel(String qanalysisid, String questionId, int month, int year, int totalScore, int totalFeedbacks) {
         this.qanalysisid = qanalysisid;
         this.questionId = questionId;
-        Month = month;
-        Year = year;
+        this.month = month;
+        this.year = year;
         this.totalScore = totalScore;
         this.totalFeedbacks = totalFeedbacks;
     }
@@ -40,22 +40,22 @@ public class QAnalysisModel {
     }
 
     public int getMonth() {
-        return Month;
+        return month;
     }
 
     public void setMonth(int month) {
-        Month = month;
+        this.month = month;
     }
 
     public int getYear() {
-        return Year;
+        return this.year;
     }
 
     public void setYear(int year) {
-        Year = year;
+        this.year = year;
     }
 
-    public float getTotalScore() {
+    public int getTotalScore() {
         return totalScore;
     }
 

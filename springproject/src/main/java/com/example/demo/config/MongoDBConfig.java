@@ -95,7 +95,7 @@ public class MongoDBConfig implements CommandLineRunner {
         this.qAnalysisRepository.deleteAll();
         this.questionRepository.deleteAll();
 
-        //now insert the elements
+
         List<QuestionModel> questionModels = Arrays.asList(questionModel1);
         this.questionRepository.saveAll(questionModels);
         List<QAnalysisModel> qAnalysisModels = Arrays.asList(qAnalysisModel1);
