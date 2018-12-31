@@ -28,7 +28,7 @@ public class QAnalysisModel {
 
 
     public QAnalysisModel() {
-        
+
     }
 
     public String getQuestionId() {

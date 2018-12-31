@@ -11,10 +11,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
-import java.util.Calendar;
-import java.util.List;
-import java.util.Map;
-import java.util.UUID;
+import java.util.*;
 
 import static org.springframework.http.MediaType.APPLICATION_JSON_VALUE;
 import static org.springframework.web.bind.annotation.RequestMethod.POST;
@@ -46,6 +43,16 @@ public class FeedBackController {
         List<QuestionModel> questionModels = this.questionRepository.findAll();
         return questionModels;
     }
+
+
+    @RequestMapping(value = "/feedback",  method = POST, consumes = APPLICATION_JSON_VALUE, produces = APPLICATION_JSON_VALUE)
+    @CrossOrigin(origins = "*", allowCredentials = "true", allowedHeaders = "*")
+    public int addFeedback(HttpEntity<HashMap<String, Object>> httpEntity)
+    {
+        System.out.println(((ArrayList<Object>) httpEntity.getBody().get("questionsAttempted")).get(0));
+        return 200;
+    }
+
 
     @RequestMapping(value = "/addQuestion",  method = POST, consumes = APPLICATION_JSON_VALUE, produces = APPLICATION_JSON_VALUE)
     @CrossOrigin(origins = "*", allowCredentials = "true", allowedHeaders = "*")
