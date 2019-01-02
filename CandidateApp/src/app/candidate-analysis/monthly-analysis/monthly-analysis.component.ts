@@ -12,14 +12,34 @@ export class MonthlyAnalysisComponent implements OnInit {
   BarChart; 
   analysis;
   questionList: Array<any>;
+  fromYear: number = (new Date()).getFullYear();
+  yearList: Array<any>;
+  
 
   constructor(private httpClient : HttpClient, private g : Globals) {
+    this.yearList = new Array();
     this.questionList = new Array();
     document.body.style.background = 'rgba(4,89,152,0.25)';
   }
 
+  setFromYear(year)
+  {
+     this.fromYear = year;
+     this.initializeGraph()
+     alert("Select the question!")
+  }
+
   drawGraph(questionNo)
   {
+
+    this.httpClient.get(this.g.url+"feedback/monthly?year="+this.fromYear).subscribe(data => {
+      this.analysis = data;
+    },
+      error => {
+          console.log("Error", error);
+      }
+    );
+
     this.reinitializeGraph()
     for(let i =1 ;i <= 12; i++)
     {
@@ -34,6 +54,13 @@ export class MonthlyAnalysisComponent implements OnInit {
   }
 
   reinitializeGraph()
+  {
+    this.BarChart.data.datasets[0].data = []
+    this.BarChart.data.datasets[0].backgroundColor = []
+    this.BarChart.data.datasets[0].borderColor = []
+  }
+
+  initializeGraph()
   {
     this.BarChart=new Chart ('barchart', {
       type: 'bar',
@@ -60,25 +87,37 @@ export class MonthlyAnalysisComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.reinitializeGraph()
-    this.httpClient.get(this.g.url+this.g.getQuestions).subscribe(data => {
-      for(let i =0; i< data["length"];i++)
-      {
-        this.questionList.push({questionNo: (i+1), questionName: data[i].questionName})
-      }
-    },
-    error => {
-        console.log("Error", error);
-    }
-   );
-  
-   this.httpClient.get(this.g.url+'feedback/monthly').subscribe(data => {
-    this.analysis = data
-  },
-  error => {
-      console.log("Error", error);
-  }
- );
-  
+          this.initializeGraph()
+          this.httpClient.get(this.g.url+this.g.getQuestions).subscribe(data => {
+            for(let i =0; i< data["length"];i++)
+            {
+              this.questionList.push({questionNo: (i+1), questionName: data[i].questionName})
+            }
+          },
+            error => {
+                console.log("Error", error);
+            }
+          );
+        
+          this.httpClient.get(this.g.url+'feedback/monthly?year='+this.fromYear).subscribe(data => {
+            this.analysis = data
+          },
+            error => {
+                console.log("Error", error);
+            }
+          );
+
+          this.httpClient.get(this.g.url+'feedback/yearly').subscribe(data => {
+            var  year = 2019    //Date.getFullYear()
+            while(data[''+year]!==undefined)
+            {
+              this.yearList.push(''+year)
+              year -=1
+            }
+          },
+          error => {
+              console.log("Error", error);
+          }
+          );
   }  
 }

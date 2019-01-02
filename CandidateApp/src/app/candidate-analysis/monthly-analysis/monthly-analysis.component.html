@@ -12,8 +12,17 @@
     </ul>
   </div>
 </nav>
-
+<nav>
+<div *ngFor=" let year of yearList ; let i = index" [attr.data-index]="i">
+   <ul> <li (click)="setFromYear(year)">{{year}}</li></ul>
+  </div>
+</nav>    
+<h4>{{fromYear}} Analysis</h4>
 <!-- chart.js code -->
+
+
+
+
 
 <table>
   <tr>
@@ -22,7 +31,6 @@
       <td style="width:700px ; height:500px; background-color:rgba(255,255,255,0.55);padding:20px; ">
         <h4>Select Question to analyze:</h4>
         <div *ngFor="let question of questionList ; let i = index" [attr.data-index]="i">
-         
           <li (click)="drawGraph(question.questionNo)">{{question.questionNo}}: {{question.questionName}}</li>
         </div>  
          </td> 

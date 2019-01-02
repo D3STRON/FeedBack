@@ -6,12 +6,9 @@ import com.example.demo.repository.QAnalysisRepository;
 import com.example.demo.repository.QuestionRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpEntity;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
-import java.time.Year;
+
 import java.util.*;
 
 import static org.springframework.http.MediaType.APPLICATION_JSON_VALUE;
@@ -81,6 +78,33 @@ public class FeedBackController {
         }
         return 200;
     }
+
+
+    @RequestMapping(value = "/feedback/monthly", method = RequestMethod.GET)
+    @CrossOrigin(origins = "*", allowCredentials = "true", allowedHeaders = "*")
+    public HashMap<String,HashMap<String,Double>> getMonthlyyAnalysis(@RequestParam("year") int year)
+    {
+        HashMap<String,HashMap<String,Double>> hashMapHashMap = new HashMap<>();
+        List<QuestionModel> questionModels = this.questionRepository.findAll();
+        for(int i =0; i < 12; i++)
+        {
+            HashMap<String,Double> hashMap = new HashMap<>();
+            for(int j=0 ;j<questionModels.size(); j++)
+            {
+                QAnalysisModel qAnalysisModel = this.qAnalysisRepository.findQAnalysisModelByQuestionIdAndMonthAndYear(questionModels.get(j).getQuestionId(),i,year);
+                if(qAnalysisModel != null)
+                {
+                    hashMap.put(Integer.toString(j+1),(double)qAnalysisModel.getTotalScore()/qAnalysisModel.getTotalFeedbacks());
+                }
+                else{
+                    hashMap.put(Integer.toString(j+1),0.0);
+                }
+            }
+            hashMapHashMap.put(Integer.toString(i+1),hashMap);
+        }
+        return hashMapHashMap;
+    }
+
 
     @RequestMapping(value = "/feedback/yearly", method = RequestMethod.GET)
     @CrossOrigin(origins = "*", allowCredentials = "true", allowedHeaders = "*")
