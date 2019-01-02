@@ -26,20 +26,18 @@ export class MonthlyAnalysisComponent implements OnInit {
   {
      this.fromYear = year;
      this.initializeGraph()
-     alert("Select the question!")
-  }
-
-  drawGraph(questionNo)
-  {
-
-    this.httpClient.get(this.g.url+"feedback/monthly?year="+this.fromYear).subscribe(data => {
+     this.httpClient.get(this.g.url+"feedback/monthly?year="+this.fromYear).subscribe(data => {
       this.analysis = data;
     },
       error => {
           console.log("Error", error);
       }
     );
+     alert("Select the question!")
+  }
 
+  drawGraph(questionNo)
+  {
     this.reinitializeGraph()
     for(let i =1 ;i <= 12; i++)
     {
