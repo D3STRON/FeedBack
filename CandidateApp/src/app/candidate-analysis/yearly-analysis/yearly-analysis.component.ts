@@ -20,8 +20,8 @@ export class YearlyAnalysisComponent implements OnInit {
 
   drawGraph(questionNo)
   {
-    var year = 2019;
-    this.reinitalizeGraph()
+    var year = (new Date()).getFullYear();
+    this.reinitializeGraph()
         while(this.analysis[''+year]!==undefined)
         {
           this.BarChart.data.labels.unshift(''+year)
@@ -37,8 +37,17 @@ export class YearlyAnalysisComponent implements OnInit {
   }
  
 
-  reinitalizeGraph()
+   reinitializeGraph()
+   {
+    this.BarChart.data.labels = []
+    this.BarChart.data.datasets[0].data = []
+    this.BarChart.data.datasets[0].backgroundColor = []
+    this.BarChart.data.datasets[0].borderColor = []
+   }
+
+  initializeGraph()
   {
+
     this.BarChart=new Chart ('barchart', {
       type: 'bar',
       data: {
@@ -66,7 +75,7 @@ export class YearlyAnalysisComponent implements OnInit {
 
   ngOnInit() {
         
-    this.reinitalizeGraph()
+    this.initializeGraph()
     var num = new Number(266);
     this.httpClient.get(this.g.url+'feedback/yearly').subscribe(data => {
         this.analysis = data

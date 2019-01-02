@@ -27,21 +27,21 @@ public class MongoDBConfig implements CommandLineRunner {
 
     @Override
     public void run(String... args) throws Exception {
-        qid = UUID.randomUUID().toString();
-        QuestionModel questionModel1 = new QuestionModel(
-                 qid,
-                2,
-                2018,
-                "How was the Food?"
-        );
-        QAnalysisModel qAnalysisModel1 = new QAnalysisModel(
-                UUID.randomUUID().toString(),
-                qid,
-                2,
-                2018,
-                0,
-                1
-        );
+//        qid = UUID.randomUUID().toString();
+//        QuestionModel questionModel1 = new QuestionModel(
+//                 qid,
+//                2,
+//                2018,
+//                "How was the Food?"
+//        );
+//        QAnalysisModel qAnalysisModel1 = new QAnalysisModel(
+//                UUID.randomUUID().toString(),
+//                qid,
+//                2,
+//                2018,
+//                0,
+//                1
+//        );
 
 //        qid = UUID.randomUUID().toString();
 //        QuestionModel questionModel2 = new QuestionModel(
@@ -92,13 +92,13 @@ public class MongoDBConfig implements CommandLineRunner {
 //        );
 
 
-        this.qAnalysisRepository.deleteAll();
-        this.questionRepository.deleteAll();
+//        this.qAnalysisRepository.deleteAll();
+//        this.questionRepository.deleteAll();
 
 
-        List<QuestionModel> questionModels = Arrays.asList(questionModel1);
-        this.questionRepository.saveAll(questionModels);
-        List<QAnalysisModel> qAnalysisModels = Arrays.asList(qAnalysisModel1);
-        this.qAnalysisRepository.saveAll(qAnalysisModels);
+//        List<QuestionModel> questionModels = Arrays.asList(questionModel1);
+//        this.questionRepository.saveAll(questionModels);
+//        List<QAnalysisModel> qAnalysisModels = Arrays.asList(qAnalysisModel1);
+//        this.qAnalysisRepository.saveAll(qAnalysisModels);
     }
 }
