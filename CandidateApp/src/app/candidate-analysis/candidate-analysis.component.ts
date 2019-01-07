@@ -60,7 +60,8 @@ export class CandidateAnalysisComponent implements OnInit {
         for (let i = 0; i < data["length"]; i++) {
           this.questionList.push({
             questionNo: (i + 1),
-            questionName: data[i].questionName
+            questionName: data[i].questionName,
+            visible: data[i].visible
           });
         }
       },

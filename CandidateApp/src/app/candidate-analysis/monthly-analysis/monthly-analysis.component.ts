@@ -25,7 +25,7 @@ export class MonthlyAnalysisComponent implements OnInit {
   setFromYear(year)
   {
      this.fromYear = year;
-     this.initializeGraph()
+     this.reinitializeGraph()
      this.httpClient.get(this.g.url+"feedback/monthly?year="+this.fromYear).subscribe(data => {
       this.analysis = data;
     },

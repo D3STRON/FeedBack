@@ -72,7 +72,8 @@ export class CandidateFeedbackComponent implements OnInit {
             questionNo: (i + 1),
             questionName: data[i].questionName,
             questionOverAll: '?',
-            questionRating: null
+            questionRating: null,
+            visible: data[i].visible
           });
         }
       },

@@ -146,7 +146,8 @@ public class FeedBackController {
                 qid,
                 3,//c.get(Calendar.MONTH),
                 2017,//c.get(Calendar.YEAR),
-                httpEntity.getBody().get("questionName")
+                httpEntity.getBody().get("questionName"),
+                true
         ));
 
         this.qAnalysisRepository.save(new QAnalysisModel(

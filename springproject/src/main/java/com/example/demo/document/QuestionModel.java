@@ -12,6 +12,15 @@ public class QuestionModel {
     public int lastModifiedMonth;
     public int lastModifiedYear;
     public String questionName;
+    public boolean visible;
+
+    public QuestionModel(String questionId, int lastModifiedMonth, int lastModifiedYear, String questionName, boolean visible) {
+        this.questionId = questionId;
+        this.lastModifiedMonth = lastModifiedMonth;
+        this.lastModifiedYear = lastModifiedYear;
+        this.questionName = questionName;
+        this.visible = visible;
+    }
 
     public String getQuestionId() {
         return questionId;
@@ -23,17 +32,6 @@ public class QuestionModel {
 
     public int getLastModifiedMonth() {
         return lastModifiedMonth;
-    }
-
-    public QuestionModel(String questionId, int lastModifiedMonth, int lastModifiedYear, String questionName) {
-        this.questionId = questionId;
-        this.lastModifiedMonth = lastModifiedMonth;
-        this.lastModifiedYear = lastModifiedYear;
-        this.questionName = questionName;
-    }
-
-    public QuestionModel() {
-
     }
 
     public void setLastModifiedMonth(int lastModifiedMonth) {
@@ -48,12 +46,19 @@ public class QuestionModel {
         this.lastModifiedYear = lastModifiedYear;
     }
 
-
     public String getQuestionName() {
         return questionName;
     }
 
     public void setQuestionName(String questionName) {
         this.questionName = questionName;
+    }
+
+    public boolean isVisible() {
+        return visible;
+    }
+
+    public void setVisible(boolean visible) {
+        this.visible = visible;
     }
 }

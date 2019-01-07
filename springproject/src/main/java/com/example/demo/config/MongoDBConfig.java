@@ -27,73 +27,71 @@ public class MongoDBConfig implements CommandLineRunner {
 
     @Override
     public void run(String... args) throws Exception {
-//        qid = UUID.randomUUID().toString();
-//        QuestionModel questionModel1 = new QuestionModel(
-//                 qid,
-//                2,
-//                2018,
-//                "How was the Food?"
-//        );
+//        this.qAnalysisRepository.deleteAll();
+//        this.questionRepository.deleteAll();
+
+
+//        qid = "3794586a-7928-4ca3-9556-cf5d03f1ecaa";
+////        QuestionModel questionModel1 = new QuestionModel(
+////                 qid,
+////                1,
+////                2019,
+////                "How was the Food?",
+////                true
+////        );
+////        this.questionRepository.save(questionModel1);
+//
 //        QAnalysisModel qAnalysisModel1 = new QAnalysisModel(
 //                UUID.randomUUID().toString(),
 //                qid,
 //                2,
 //                2018,
-//                0,
+//                6,
 //                1
 //        );
-
-//        qid = UUID.randomUUID().toString();
-//        QuestionModel questionModel2 = new QuestionModel(
+//        this.qAnalysisRepository.save(qAnalysisModel1);
+//
+//        qAnalysisModel1 = new QAnalysisModel(
+//                UUID.randomUUID().toString(),
+//                qid,
+//                6,
+//                2018,
+//                9,
+//                1
+//        );
+//        this.qAnalysisRepository.save(qAnalysisModel1);
+//
+//        qAnalysisModel1 = new QAnalysisModel(
+//                UUID.randomUUID().toString(),
+//                qid,
+//                11,
+//                2018,
+//                10,
+//                1
+//        );
+//        this.qAnalysisRepository.save(qAnalysisModel1);
+//
+//        qAnalysisModel1 = new QAnalysisModel(
+//                UUID.randomUUID().toString(),
 //                qid,
 //                3,
-//                2019,
-//                "How was the Punctuality?"
-//        );
-//        QAnalysisModel qAnalysisModel2 = new QAnalysisModel(
-//                UUID.randomUUID().toString(),
-//                qid,
-//                3,
-//                2019,
-//                0,
+//                2018,
+//                5,
 //                1
 //        );
+//        this.qAnalysisRepository.save(qAnalysisModel1);
 //
-//        qid = UUID.randomUUID().toString();
-//        QuestionModel questionModel3 = new QuestionModel(
-//                qid,
-//                4,
-//                2019,
-//                "How was the OverAll Experience?"
-//        );
-//        QAnalysisModel qAnalysisModel3 = new QAnalysisModel(
+//        qAnalysisModel1 = new QAnalysisModel(
 //                UUID.randomUUID().toString(),
 //                qid,
 //                4,
-//                2019,
-//                0,
+//                2018,
+//                8,
 //                1
 //        );
-//
-//        qid = UUID.randomUUID().toString();
-//        QuestionModel questionModel4 = new QuestionModel(
-//                qid,
-//                4,
-//                2019,
-//                "How relevant were the questions?"
-//        );
-//        QAnalysisModel qAnalysisModel4 = new QAnalysisModel(
-//                UUID.randomUUID().toString(),
-//                qid,
-//                4,
-//                2019,
-//                0,
-//                1
-//        );
+//        this.qAnalysisRepository.save(qAnalysisModel1);
 
 
-//        this.qAnalysisRepository.deleteAll();
-//        this.questionRepository.deleteAll();
 
 
 //        List<QuestionModel> questionModels = Arrays.asList(questionModel1);
