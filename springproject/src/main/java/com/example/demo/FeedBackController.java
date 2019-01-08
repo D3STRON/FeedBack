@@ -1,12 +1,15 @@
 package com.example.demo;
 
+import com.example.demo.config.JWTConfig;
 import com.example.demo.document.QAnalysisModel;
 import com.example.demo.document.QuestionModel;
 import com.example.demo.repository.QAnalysisRepository;
 import com.example.demo.repository.QuestionRepository;
+import io.jsonwebtoken.Claims;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpEntity;
 import org.springframework.web.bind.annotation.*;
+
 
 
 import java.util.*;
@@ -20,6 +23,7 @@ public class FeedBackController {
     protected final QAnalysisRepository qAnalysisRepository;
     Calendar c = Calendar.getInstance();
     String qid;
+    JWTConfig jwtConfig = new JWTConfig();
 
     @Autowired
     public FeedBackController(QuestionRepository questionRepository, QAnalysisRepository qAnalysisRepository) {
@@ -29,17 +33,35 @@ public class FeedBackController {
 
     @CrossOrigin(origins = "*", allowCredentials = "true", allowedHeaders = "*")
     @RequestMapping(value = "/login", method = POST)
-    public int login()
+    public HashMap<String,Object> login(HttpEntity<HashMap<String, String>> httpEntity)
     {
-        return 200;
+        HashMap<String,Object> response = new HashMap<>();
+        if(httpEntity.getBody().get("refId").equalsIgnoreCase("myid") && httpEntity.getBody().get("password").equalsIgnoreCase("mypass"))
+        {
+            jwtConfig.setId("myid");
+            jwtConfig.setSubject("candidate");
+            response.put("success",true);
+            response.put("token",jwtConfig.createJWT());
+        }
+        else{
+            response.put("success",false);
+        }
+//        System.out.println(jwtConfig.parseJWT(response.get("token").toString()).getExpiration()+" "+response.get("token"));
+        return response;
     }
 
     @CrossOrigin(origins = "*", allowCredentials = "true", allowedHeaders = "*")
     @RequestMapping(value = "/questions/all", method = RequestMethod.GET)
-    public List<QuestionModel> getQuestions()
+    public List<QuestionModel> getQuestions(@RequestHeader(value="Authorization") String JWTtoken)
     {
-        List<QuestionModel> questionModels = this.questionRepository.findAll();
-        return questionModels;
+//         System.out.println(JWTtoken);
+        Claims claims = jwtConfig.parseJWT(JWTtoken); /// checking for the token validity
+        if(claims.getSubject().equalsIgnoreCase("candidate") && claims.getExpiration().after(new Date( System.currentTimeMillis())))
+        {
+            List<QuestionModel> questionModels = this.questionRepository.findAll();
+            return questionModels;
+        }
+        else return null;
     }
 
 
@@ -161,4 +183,5 @@ public class FeedBackController {
 
         return 200;
     }
+
 }

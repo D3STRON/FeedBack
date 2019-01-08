@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http'; // for http request
 import { Globals } from '../globals';
+import { CookieService, CookieOptions } from 'angular2-cookie/core'; 
 import { findLast } from '@angular/compiler/src/directive_resolver';
 
 @Component({
@@ -14,7 +15,7 @@ export class CandidateAnalysisComponent implements OnInit {
 
   readonly addQPage = 'addQuestion';
 
-  constructor(private httpClient: HttpClient, private g: Globals) {
+  constructor(private httpClient: HttpClient, private g: Globals, private cokieService: CookieService) {
     this.questionList = new Array();
     document.body.style.background = 'rgba(4,89,152,0.25)';
   }
@@ -53,6 +54,8 @@ export class CandidateAnalysisComponent implements OnInit {
   }
 
   ngOnInit() {
+    if(this.cokieService.get("token"))
+    {}    
     this.httpClient.get(this.g.url + this.g.getQuestions).subscribe(
       data => {
         console.log(data);

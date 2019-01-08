@@ -3,6 +3,7 @@ import { CookieService } from 'angular2-cookie/core'; // for cookies
 import { HttpClient } from '@angular/common/http'; // for http request
 import { Globals } from '../globals';
 import { DatePipe } from '@angular/common';
+import { Router } from '@angular/router';// for routing
 
 @Component({
   selector: 'app-candidate-feedback',
@@ -20,13 +21,14 @@ export class CandidateFeedbackComponent implements OnInit {
   constructor(
     private httpClient: HttpClient,
     private g: Globals,
-    private datePipe: DatePipe
+    private datePipe: DatePipe,
+    private router: Router
   ) {
     document.body.style.background = 'rgba(4,89,152,0.25)';
     this.title = 'TIAA CANDIDATE FEEDBACK';
     this.cookieService = new CookieService();
     this.questionList = new Array();
-  }
+   }
 
   setScore(a, b) {
     this.questionList[a].questionRating = b;
@@ -39,12 +41,8 @@ export class CandidateFeedbackComponent implements OnInit {
     }
   }
 
-  setCookie() {
-    this.cookieService.put('test', 'testingCookie');
-  }
-
   submitFeedback() {
-    console.log(this.datePipe.transform(this.myDate, 'yyyy-MM-dd'));
+    console.log(this.datePipe.transform(this.myDate, 'yyyy-MM-dd'));/// convert date to a format given
     this.httpClient
       .post(this.g.url + this.pageName, {
         // dateString: this.datePipe.transform(this.myDate, 'yyyy-MM-dd'),
@@ -63,23 +61,32 @@ export class CandidateFeedbackComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.httpClient.get(this.g.url + this.g.getQuestions).subscribe(
-      data => {
-        console.log(data);
-
-        for (let i = 0; i < data["length"]; i++) {
-          this.questionList.push({
-            questionNo: (i + 1),
-            questionName: data[i].questionName,
-            questionOverAll: '?',
-            questionRating: null,
-            visible: data[i].visible
-          });
+    if(this.cookieService.get('JWTtoken')){
+      this.httpClient.get(this.g.url + this.g.getQuestions,{
+        headers: {'Authorization':this.cookieService.get('JWTtoken')}
+     }).subscribe(
+        data => {
+           if(data){for (let i = 0; i < data["length"]; i++) {
+            this.questionList.push({
+              questionNo: (i + 1),
+              questionName: data[i].questionName,
+              questionOverAll: '?',
+              questionRating: null,
+              visible: data[i].visible
+            });
+          }}
+          else {
+            this.router.navigate([`${'login'}`]);
+          }
+        },
+        error => {
+          console.log('Error', error);
+          this.router.navigate([`${'login'}`]);
         }
-      },
-      error => {
-        console.log('Error', error);
-      }
-    );
+      );
+    }
+    else{
+      this.router.navigate([`${'login'}`]);
+    }
   }
 }

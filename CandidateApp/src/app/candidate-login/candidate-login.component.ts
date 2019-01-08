@@ -18,9 +18,11 @@ export class CandidateLoginComponent implements OnInit {
   readonly pageName = 'login';
   password : string;
   refId : string;
+  cookieService: CookieService;
   
   constructor(private router: Router, private httpClient: HttpClient, private g: Globals) {
      document.body.style.background = 'rgba(4,89,152,0.25)';
+     this.cookieService = new CookieService()
   }
 
   goToPage(pageName:string){
@@ -33,7 +35,12 @@ export class CandidateLoginComponent implements OnInit {
       .subscribe(
           data => {
               console.log("POST Request is successful ", data);
-              this.router.navigate([`${pageName}`]);
+              if(data['success'])
+              {
+                this.cookieService.removeAll()
+                this.cookieService.put("JWTtoken",data['token']);
+                this.router.navigate([`${pageName}`]);
+              }
           },
           error => {
               console.log("Error has occured", error);
