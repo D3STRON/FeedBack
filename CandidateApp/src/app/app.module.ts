@@ -14,6 +14,8 @@ import { MonthlyAnalysisComponent } from './candidate-analysis/monthly-analysis/
 import { YearlyAnalysisComponent } from './candidate-analysis/yearly-analysis/yearly-analysis.component';
 import { CommentAnalysisComponent } from './candidate-analysis/comment-analysis/comment-analysis.component' // global variables
 import { DatePipe } from '@angular/common';
+import { AuthService } from './auth/auth.service';
+
 
 @NgModule({
   declarations: [
@@ -36,7 +38,8 @@ import { DatePipe } from '@angular/common';
   providers: [
     CookieService,
     Globals,
-    DatePipe
+    DatePipe,
+    AuthService
   ], // for cookies
   bootstrap: [AppComponent]
 })
