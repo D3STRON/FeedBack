@@ -41,6 +41,7 @@ public class FeedBackController {
             jwtConfig.setId("myid");
             jwtConfig.setSubject("candidate");
             response.put("success",true);
+            response.put("tokenType","CNtoken");
             response.put("token",jwtConfig.createJWT());
         }
         else{

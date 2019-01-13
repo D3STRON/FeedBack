@@ -7,10 +7,12 @@ import {HrLoginComponent} from './hr-login/hr-login.component';
 import {MonthlyAnalysisComponent} from './candidate-analysis/monthly-analysis/monthly-analysis.component';
 import {CommentAnalysisComponent} from './candidate-analysis/comment-analysis/comment-analysis.component';
 import {YearlyAnalysisComponent} from './candidate-analysis/yearly-analysis/yearly-analysis.component';
+import { AuthGuard } from './auth/auth.guard';
 
 const routes: Routes =
-[{ path: 'login', component: CandidateLoginComponent },
-{  path: 'feedback', component: CandidateFeedbackComponent},
+[
+  { path: 'login', component: CandidateLoginComponent },
+  {path: 'feedback', component: CandidateFeedbackComponent,  canActivate: [AuthGuard]},// if auth fuard return true then access aloowed else redirect
   {  path: 'analysis', component: CandidateAnalysisComponent},
   {  path: 'hrlogin', component: HrLoginComponent},
   {  path: 'monthly', component: MonthlyAnalysisComponent},

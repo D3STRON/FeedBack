@@ -61,9 +61,8 @@ export class CandidateFeedbackComponent implements OnInit {
   }
 
   ngOnInit() {
-    if(this.cookieService.get('JWTtoken')){
       this.httpClient.get(this.g.url + this.g.getQuestions,{
-        headers: {'Authorization':this.cookieService.get('JWTtoken')}
+        headers: {'Authorization':this.cookieService.get('CNtoken')}
      }).subscribe(
         data => {
            if(data){for (let i = 0; i < data["length"]; i++) {
@@ -85,8 +84,4 @@ export class CandidateFeedbackComponent implements OnInit {
         }
       );
     }
-    else{
-      this.router.navigate([`${'login'}`]);
-    }
-  }
 }

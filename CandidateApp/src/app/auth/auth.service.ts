@@ -28,7 +28,7 @@ export class AuthService {
               if(data['success'])
               {
                 this.cookieService.removeAll()
-                this.cookieService.put("JWTtoken",data['token']);
+                this.cookieService.put(data['tokenType'],data['token']);
                 this.router.navigate([this.globals.feedback]);
               }
           },
@@ -36,5 +36,14 @@ export class AuthService {
               console.log("Error has occured", error);
           }
       );
+  }
+
+  loggedIn()
+  {
+    if(this.cookieService.get('CNtoken'))
+    {
+      return true
+    }
+    return false
   }
 }
