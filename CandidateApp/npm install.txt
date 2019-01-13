@@ -5,3 +5,118 @@ npm rebuild node-sass
 npm install rxjs-compat --save
 
 npm install corsn
+
+QAnalysis
+[
+    {
+    "_id" : "b120a0e5-ca2c-4540-8c48-8b1edda86103",
+    "questionId" : "3794586a-7928-4ca3-9556-cf5d03f1ecaa",
+    "month" : 1,
+    "year" : 2017,
+    "totalScore" : 5,
+    "totalFeedbacks" : 1,
+    "_class" : "com.example.demo.document.QAnalysisModel"
+    },
+    {
+    "_id" : "55e5e725-4ff6-47e1-b985-2aedcd1d9a71",
+    "questionId" : "3794586a-7928-4ca3-9556-cf5d03f1ecaa",
+    "month" : 8,
+    "year" : 2017,
+    "totalScore" : 6,
+    "totalFeedbacks" : 1,
+    "_class" : "com.example.demo.document.QAnalysisModel"
+    },
+    {
+    "_id" : "13c002cc-ff75-4cb0-ad70-11049d0390a1",
+    "questionId" : "3794586a-7928-4ca3-9556-cf5d03f1ecaa",
+    "month" : 6,
+    "year" : 2017,
+    "totalScore" : 10,
+    "totalFeedbacks" : 1,
+    "_class" : "com.example.demo.document.QAnalysisModel"
+    },
+    {
+    "_id" : "d8bd312b-ff4e-49a8-8e4f-de16e73e73cb",
+    "questionId" : "3794586a-7928-4ca3-9556-cf5d03f1ecaa",
+    "month" : 3,
+    "year" : 2017,
+    "totalScore" : 7,
+    "totalFeedbacks" : 1,
+    "_class" : "com.example.demo.document.QAnalysisModel"
+    },
+    {
+    "_id" : "f5dc6711-bfd8-48f7-b7df-83dc1687ff37",
+    "questionId" : "3794586a-7928-4ca3-9556-cf5d03f1ecaa",
+    "month" : 4,
+    "year" : 2017,
+    "totalScore" : 9,
+    "totalFeedbacks" : 1,
+    "_class" : "com.example.demo.document.QAnalysisModel"
+    },
+    {
+    "_id" : "f53b9134-a2df-410b-8d88-e831a839059d",
+    "questionId" : "3794586a-7928-4ca3-9556-cf5d03f1ecaa",
+    "month" : 2,
+    "year" : 2018,
+    "totalScore" : 6,
+    "totalFeedbacks" : 1,
+    "_class" : "com.example.demo.document.QAnalysisModel"
+    },
+    {
+    "_id" : "7428ae9f-942d-452e-8dac-4f19d8eb7425",
+    "questionId" : "3794586a-7928-4ca3-9556-cf5d03f1ecaa",
+    "month" : 6,
+    "year" : 2018,
+    "totalScore" : 9,
+    "totalFeedbacks" : 1,
+    "_class" : "com.example.demo.document.QAnalysisModel"
+    },
+    {
+    "_id" : "b152e23d-34ca-46fc-addd-715df1de453f",
+    "questionId" : "3794586a-7928-4ca3-9556-cf5d03f1ecaa",
+    "month" : 11,
+    "year" : 2018,
+    "totalScore" : 10,
+    "totalFeedbacks" : 1,
+    "_class" : "com.example.demo.document.QAnalysisModel"
+    },
+    {
+    "_id" : "dcf347ab-dba4-4152-b109-b95e01bda00c",
+    "questionId" : "3794586a-7928-4ca3-9556-cf5d03f1ecaa",
+    "month" : 3,
+    "year" : 2018,
+    "totalScore" : 5,
+    "totalFeedbacks" : 1,
+    "_class" : "com.example.demo.document.QAnalysisModel"
+    },
+    {
+    "_id" : "4f15815f-4d7b-4d19-ac48-d5ed7dd5f071",
+    "questionId" : "3794586a-7928-4ca3-9556-cf5d03f1ecaa",
+    "month" : 4,
+    "year" : 2018,
+    "totalScore" : 8,
+    "totalFeedbacks" : 1,
+    "_class" : "com.example.demo.document.QAnalysisModel"
+    },
+    {
+    "_id" : "27ec83c3-4b85-47e6-b5d0-8c6823a70ca0",
+    "questionId" : "3794586a-7928-4ca3-9556-cf5d03f1ecaa",
+    "month" : 0,
+    "year" : 2019,
+    "totalScore" : 9,
+    "totalFeedbacks" : 1,
+    "_class" : "com.example.demo.document.QAnalysisModel"
+    }
+]
+
+Questions
+[
+    {
+    "_id" : "3794586a-7928-4ca3-9556-cf5d03f1ecaa",
+    "lastModifiedMonth" : 0,
+    "lastModifiedYear" : 2019,
+    "questionName" : "How was the Food?",
+    "visible" : true,
+    "_class" : "com.example.demo.document.QuestionModel"
+    }
+]
