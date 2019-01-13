@@ -9,10 +9,14 @@ import { Router } from '@angular/router';// for routing
 })
 export class AuthService {
   readonly pageName = 'login';
-  cookieService: CookieService;
 
-  constructor(private router : Router, private http: HttpClient, private globals: Globals) {
-    this.cookieService = new CookieService()
+  constructor(
+    private router : Router, 
+    private http: HttpClient, 
+    private globals: Globals,
+    private cookieService: CookieService
+    ) {
+    
    }
 
   loginUser(refId, password)

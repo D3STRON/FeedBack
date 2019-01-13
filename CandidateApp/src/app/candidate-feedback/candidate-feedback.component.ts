@@ -61,9 +61,7 @@ export class CandidateFeedbackComponent implements OnInit {
   }
 
   ngOnInit() {
-      this.httpClient.get(this.g.url + this.g.getQuestions,{
-        headers: {'Authorization':this.cookieService.get('CNtoken')}
-     }).subscribe(
+      this.httpClient.get(this.g.url + this.g.getQuestions).subscribe(
         data => {
            if(data){for (let i = 0; i < data["length"]; i++) {
             this.questionList.push({

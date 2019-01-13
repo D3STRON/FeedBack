@@ -6,7 +6,7 @@ import { CookieService } from 'angular2-cookie/services/cookies.service'; // for
 import { CandidateLoginComponent } from './candidate-login/candidate-login.component';
 import { CandidateFeedbackComponent } from './candidate-feedback/candidate-feedback.component';
 import { FormsModule } from '@angular/forms'; // for tow way data binding
-import { HttpClientModule } from '@angular/common/http'; // for http request 
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http'; // for http request and tokenn handeling
 import { Globals } from './globals';
 import { CandidateAnalysisComponent } from './candidate-analysis/candidate-analysis.component';
 import { HrLoginComponent } from './hr-login/hr-login.component';
@@ -16,6 +16,7 @@ import { CommentAnalysisComponent } from './candidate-analysis/comment-analysis/
 import { DatePipe } from '@angular/common';
 import { AuthService } from './auth/auth.service';
 import { AuthGuard } from './auth/auth.guard';
+import { TokenInterceptorService } from './auth/token-interceptor.service';
 
 
 @NgModule({
@@ -41,7 +42,12 @@ import { AuthGuard } from './auth/auth.guard';
     Globals,
     DatePipe,
     AuthService,
-    AuthGuard
+    AuthGuard,
+    {
+      provide : HTTP_INTERCEPTORS,
+      useClass : TokenInterceptorService, // process of adding token interceptor to the project
+      multi : true
+    }
   ], // for cookies
   bootstrap: [AppComponent]
 })
